@@ -4,6 +4,7 @@
 
 ###Made by : Bastien Fajs, Matthew Hons, Luna Muylkens, Nicolas Radic, Stéphane Gillon
 
+####When : During the hack in the woods Hackathon
 The transition to affordable, reliable and sustainable energy is a major prerequisite in achieving net zero targets, that are required to stop (and reverse) global warming. 
 
 Solutions that will make a difference are renewable energy resources such as solar power, hydro power and wind power as well as the adoption of clean energy technologies and infrastructure. Not only the production of energy has an impact, but also efficient (green) energy usage and practice are a key driver.
