@@ -65,7 +65,9 @@ const SignIn = ({ signInOpen, setSignInOpen }: propsSignin) => {
       },
     })
       .then((res) => {
-        setSignInOpen(!signInOpen);
+        let test = signInOpen;
+        setSignInOpen(!test);
+        console.log("test");
       })
       .catch((err) => {
         err.response.data.errors.email
@@ -75,6 +77,7 @@ const SignIn = ({ signInOpen, setSignInOpen }: propsSignin) => {
           ? setPasswordError(true)
           : setPasswordError(false);
       });
+    console.log("test2");
   };
 
   return (
