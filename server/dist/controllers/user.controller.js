@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteRequestFriend = exports.acceptFriend = exports.addFriend = exports.unfollow = exports.follow = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
+exports.addEnergy = exports.deleteRequestFriend = exports.acceptFriend = exports.addFriend = exports.unfollow = exports.follow = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
 const user_model_1 = __importDefault(require("./../models/user.model"));
 const mongoose_1 = require("mongoose");
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -169,4 +169,21 @@ const deleteRequestFriend = (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.deleteRequestFriend = deleteRequestFriend;
+const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    (yield user_model_1.default.find()).forEach((element) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            if (element.energy == 10) {
+                console.log("nop");
+            }
+            else {
+                element.updateOne({ $inc: { energy: +2 } }).exec();
+            }
+        }
+        catch (err) {
+            return console.log(err);
+        }
+    }));
+});
+exports.addEnergy = addEnergy;
+setInterval(exports.addEnergy, 1000 * 60 * 60 * 24 * 4);
 //# sourceMappingURL=user.controller.js.map
