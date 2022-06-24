@@ -1,0 +1,1 @@
+{"version":3,"file":"spot.reducer.js","sourceRoot":"","sources":["../../../../client/src/reducers/spot.reducer.tsx"],"names":[],"mappings":";;AAAA,0DAAmD;AAEnD,MAAM,YAAY,GAAG,EAAE,CAAC;AAExB,SAAwB,WAAW,CAAC,KAAK,GAAG,YAAY,EAAE,MAAW;IACnE,QAAQ,MAAM,CAAC,IAAI,EAAE;QACnB,KAAK,uBAAQ;YACX,OAAO,MAAM,CAAC,OAAO,CAAC;QACxB;YACE,OAAO,KAAK,CAAC;KAChB;AACH,CAAC;AAPD,8BAOC"}

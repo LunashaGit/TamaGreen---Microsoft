@@ -6,8 +6,8 @@ interface IUser {
   pseudo: string;
   email: string;
   password: string;
-  bio: string;
   isAdmin: boolean;
+  energy: number;
 }
 
 interface IUserDocument extends IUser, Document { }
@@ -40,20 +40,19 @@ const userSchema: Schema<IUserDocument> = new Schema(
       max: 1024,
       minlength: 6,
     },
-    bio: {
-      type: String,
-      max: 1024,
-    },
     isAdmin: {
       type: Boolean,
       default: false,
     },
+    energy: {
+      type: Number,
+      default: 10,
+    }
   },
   {
     timestamps: true,
   }
 );
-
 userSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);

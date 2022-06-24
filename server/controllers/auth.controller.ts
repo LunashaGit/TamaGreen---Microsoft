@@ -2,22 +2,19 @@ import { Request, Response } from "express";
 import UserModel from "./../models/user.model";
 import jwt from "jsonwebtoken";
 import { signUpErrors, signInErrors } from "./../utils/errors.utils";
-import dotenv from "dotenv";
-
-dotenv.config({ path: "../config/.env"});
 
 const maxAge = 3 * 21 * 60 * 60 * 1000;
 const createToken = (id: string) => {
-  return jwt.sign({ id }, process.env.TOKEN, {
+  return jwt.sign({ id }, process.env.TOKEN_SECRET, {
     expiresIn: maxAge,
   });
 };
 
 export const signUp = async (req: Request, res: Response) => {
-  const { pseudo, firstName, lastName, adresse, latitude, longitude, email, password } = req.body;
+  const { pseudo, email, password } = req.body;
   
   try {
-    const user = await UserModel.create({ pseudo, firstName, lastName, adresse, latitude, longitude, email, password });
+    const user = await UserModel.create({ pseudo, email, password });
     res.status(201).send({ user: user._id });
   } catch (err) {
     const errors = signUpErrors(err);

@@ -1,16 +1,13 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import UserModel from "./../models/user.model";
-import dotenv from "dotenv";
-
-dotenv.config({ path: "./../config/.env"});
 
 export const checkUser = (req: Request, res: Response, next: () => void) => {
   const token = req.cookies.jwt;
   if (token) {
     jwt.verify(
       token,
-      process.env.TOKEN,
+      process.env.TOKEN_SECRET,
       async (err: any, decodedToken: { id: any }) => {
         if (err) {
           res.locals.user = null;
@@ -33,7 +30,7 @@ export const requireAuth = (req: Request, res: Response, next: () => void) => {
   if (token) {
     jwt.verify(
       token,
-      process.env.TOKEN,
+      process.env.TOKEN_SECRET,
       async (err: any, decodedToken: { id: any }) => {
         if (err) {
           console.log(err);

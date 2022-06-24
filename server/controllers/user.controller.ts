@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import UserModel from "./../models/user.model";
 import { Types } from "mongoose";
+import cron from "node-cron";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   const users = await UserModel.find().select("-password");
@@ -202,3 +203,19 @@ export const deleteRequestFriend = async (req: Request, res: Response) => {
     return res.status(400).send({ message: err });
   }
 };
+
+export const addEnergy = async (req: Request, res: Response) => {
+  (await UserModel.find()).forEach(async element => {
+    try{
+      if(element.energy == 10){
+        console.log("nop")
+      } else {
+        element.updateOne({$inc: {energy: +2}}).exec();
+      }
+    } catch(err){
+      return console.log(err)
+    }
+  });
+}
+
+setInterval(addEnergy, 1000 * 60 * 60 * 24 * 4)
