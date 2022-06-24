@@ -1,8 +1,10 @@
-#Project:  Affordable and Clean Energy
+# Project:  Affordable and Clean Energy
 
-##For:  Microsoft
+## For:  Microsoft
 
-###Made by : Bastien Fajs, Matthew Hons, Luna Muylkens, Nicolas Radic, Stéphane Gillon
+### Made by : Bastien Fajs, Matthew Hons, Luna Muylkens, Nicolas Radic, Stéphane Gillon
+
+#### When : During the hack in the woods Hackathon
 
 ####When : During the hack in the woods Hackathon
 The transition to affordable, reliable and sustainable energy is a major prerequisite in achieving net zero targets, that are required to stop (and reverse) global warming. 
