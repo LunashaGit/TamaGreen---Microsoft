@@ -39,7 +39,7 @@ const Navigation = ({ page, setPage }: propsNav) => {
       <ul
         ref={ref}
         className={`bg-white border absolute right-10 z-10 w-40 rounded-tl-md rounded-bl-md rounded-br-md shadow-md transition-all ease-in-out duration-300 ${
-          isOpen ? "opacity-100 top-10" : "opacity-0 top-0"
+          isOpen ? "block opacity-100 top-10" : "hidden opacity-0 top-0"
         }`}
       >
         <li
