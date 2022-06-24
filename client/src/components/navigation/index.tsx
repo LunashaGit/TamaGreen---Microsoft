@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import Logout from "../log/Logout";
 
 type propsNav = {
   page: string;
@@ -66,6 +67,7 @@ const Navigation = ({ page, setPage }: propsNav) => {
         >
           Ranking
         </li>
+        <Logout />
       </ul>
     </nav>
   );

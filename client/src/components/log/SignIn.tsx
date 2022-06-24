@@ -65,7 +65,7 @@ const SignIn = ({ signInOpen, setSignInOpen }: propsSignin) => {
       },
     })
       .then((res) => {
-        window.location.href = "/";
+        setSignInOpen(!signInOpen);
       })
       .catch((err) => {
         err.response.data.errors.email

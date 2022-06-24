@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { UidContext } from "./components/AppContext";
 import { getUser } from "./redux/actions/user.actions";
 import SignIn from "./components/log/SignIn";
-import Signup from "./components/log/SignUp";
+import SignUp from "./components/log/SignUp";
 
 const App = () => {
   const [page, setPage] = useState<string>("home");
@@ -77,7 +77,12 @@ const App = () => {
             <SignIn signInOpen={signInOpen} setSignInOpen={setSignInOpen} />
           )}
           {signUpOpen && (
-            <Signup signUpOpen={signUpOpen} setSignUpOpen={setSignUpOpen} />
+            <SignUp
+              signUpOpen={signUpOpen}
+              setSignUpOpen={setSignUpOpen}
+              signInOpen={signInOpen}
+              setSignInOpen={setSignInOpen}
+            />
           )}
         </div>
       )}

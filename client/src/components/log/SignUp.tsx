@@ -15,66 +15,73 @@ import {
   Typography,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import axios from "axios";
 import { faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 type propsSignup = {
   signUpOpen: boolean;
   setSignUpOpen: Dispatch<SetStateAction<boolean>>;
+  signInOpen: boolean;
+  setSignInOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const theme = createTheme();
 
-const SignUp = ({ signUpOpen, setSignUpOpen }: propsSignup) => {
-  const [email, setEmail] = useState<string | null>("");
+const SignUp = ({
+  signUpOpen,
+  setSignUpOpen,
+  signInOpen,
+  setSignInOpen,
+}: propsSignup) => {
+  const [pseudo, setPseudo] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [controlPassword, setControlPassword] = useState<string>("");
+  const [pseudoError, setPseudoError] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<boolean>(false);
-  const [remember, setRemember] = useState<boolean | (null & boolean)>(true);
+  const [controlError, setControlError] = useState<boolean>(false);
+  const [termError, setTermError] = useState<boolean>(false);
 
-  localStorage.setItem("remember", JSON.stringify(remember));
-
-  useEffect(() => {
-    if (localStorage.getItem("email")) {
-      setEmail(localStorage.getItem("email"));
-    }
-    if (localStorage.getItem("remember") === null) {
-      setRemember(false);
-    }
-  }, [email, remember]);
-
-  if (remember === false) {
-    localStorage.removeItem("email");
-  }
-
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (remember) {
-      localStorage.setItem("email", email as string);
-    }
+    const terms = document.getElementById("terms") as HTMLInputElement;
 
-    axios({
-      method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/user/login`,
-      withCredentials: true,
-      data: {
-        email,
-        password,
-      },
-    })
-      .then((res) => {
-        window.location.href = "/";
+    if (password !== controlPassword || !terms.checked) {
+      if (password !== controlPassword) {
+        setControlError(true);
+      }
+      if (!terms.checked) {
+        setTermError(true);
+      }
+    } else {
+      await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}api/user/register`,
+        data: {
+          pseudo,
+          email,
+          password,
+        },
       })
-      .catch((err) => {
-        err.response.data.errors.email
-          ? setEmailError(true)
-          : setEmailError(false);
-        err.response.data.errors.password
-          ? setPasswordError(true)
-          : setPasswordError(false);
-      });
+        .then((res) => {
+          setSignUpOpen(!signUpOpen);
+          setSignInOpen(!signInOpen);
+        })
+        .catch((err) => {
+          err.response.data.errors.pseudo
+            ? setPseudoError(true)
+            : setPseudoError(false);
+          err.response.data.errors.email
+            ? setEmailError(true)
+            : setEmailError(false);
+          err.response.data.errors.password
+            ? setPasswordError(true)
+            : setPasswordError(false);
+        });
+    }
   };
 
   return (
@@ -87,9 +94,9 @@ const SignUp = ({ signUpOpen, setSignUpOpen }: propsSignup) => {
           <FontAwesomeIcon icon={faXmark} />
         </button>
         <ThemeProvider theme={theme}>
-          {emailError && (
+          {pseudoError && (
             <Alert severity="error" className="text-center">
-              Oups ! Your email doesn't exist !
+              Oups ! Your pseudo exist already !
             </Alert>
           )}
 
@@ -98,7 +105,22 @@ const SignUp = ({ signUpOpen, setSignUpOpen }: propsSignup) => {
               Oups ! Wrong password !
             </Alert>
           )}
-          <Grid container component="main" sx={{ height: "100%" }}>
+          {controlError && (
+            <Alert severity="error" className="text-center">
+              Oups ! Yours password aren't the same !
+            </Alert>
+          )}
+          {emailError && (
+            <Alert severity="error" className="text-center">
+              Oups ! Your email exist already !
+            </Alert>
+          )}
+          {termError && (
+            <Alert severity="error" className="text-center">
+              Please, accept the terms !
+            </Alert>
+          )}
+          <Grid container component="main">
             <CssBaseline />
 
             <Grid
@@ -112,7 +134,7 @@ const SignUp = ({ signUpOpen, setSignUpOpen }: propsSignup) => {
             >
               <Box
                 sx={{
-                  my: 12,
+                  my: 2,
                   mx: 4,
                   display: "flex",
                   flexDirection: "column",
@@ -123,66 +145,95 @@ const SignUp = ({ signUpOpen, setSignUpOpen }: propsSignup) => {
                   <FontAwesomeIcon icon={faUser} />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                  Sign in
+                  Register
                 </Typography>
                 <Box
                   component="form"
                   noValidate
-                  onSubmit={handleLogin}
+                  onSubmit={handleRegister}
                   sx={{ mt: 1 }}
                 >
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    autoComplete="current-password"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        value={remember}
-                        color="primary"
-                        onClick={() => setRemember(!remember)}
-                        checked={remember}
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="pseudo"
+                        label="Pseudo"
+                        name="pseudo"
+                        autoComplete="pseudo"
+                        autoFocus
+                        onChange={(e) => setPseudo(e.target.value)}
+                        value={pseudo}
                       />
-                    }
-                    label="Remember me"
-                  />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="passwordControl"
+                        label="Password Control"
+                        type="password"
+                        id="passwordControl"
+                        onChange={(e) => setControlPassword(e.target.value)}
+                        value={controlPassword}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            value="remember"
+                            color="primary"
+                            id="terms"
+                          />
+                        }
+                        label="Accept the GCD"
+                      />
+                    </Grid>
+                  </Grid>
                   <Button
                     type="submit"
                     fullWidth
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
                   >
-                    Sign In
+                    Sign Up
                   </Button>
                   <Grid container>
-                    <Grid item xs>
-                      <Link href="#" variant="body2">
-                        Forgot password?
-                      </Link>
-                    </Grid>
                     <Grid item>
-                      <Link href="/signup" variant="body2">
-                        {"Don't have an account? Sign Up"}
+                      <Link href="/signin" variant="body2">
+                        {"Already have an account? Sign In"}
                       </Link>
                     </Grid>
                   </Grid>
