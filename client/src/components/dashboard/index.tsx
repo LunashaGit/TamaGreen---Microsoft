@@ -1,18 +1,11 @@
 import { useState } from "react";
 
-type dashProps = {
-  page: string;
-};
-const Dashboard = ({ page }: dashProps) => {
+const Dashboard = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div
       className={`bg-gray-500 h-[calc(100%-0.25rem)] ${
-        page === "home"
-          ? isOpen
-            ? "w-[calc(100%-1rem)]"
-            : "w-6"
-          : "w-[calc(100%-1rem)]"
+        isOpen ? "w-[calc(100%-1rem)]" : "w-6"
       } pr-2 flex items-center justify-end rounded-r-xl transition-all ease-in-out duration-300 absolute top-0 shadow-md `}
     >
       <button

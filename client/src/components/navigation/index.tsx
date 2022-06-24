@@ -22,6 +22,11 @@ const Navigation = ({ page, setPage }: propsNav) => {
       document.addEventListener("mousedown", clickOut);
     };
   }, [isOpen]);
+
+  const handleLink = (e: string) => {
+    setPage(e);
+    setIsOpen(!isOpen);
+  };
   return (
     <nav className="w-full p-3 flex justify-between items-center h-16 relative">
       <h1>TamaBeCode</h1>
@@ -38,25 +43,26 @@ const Navigation = ({ page, setPage }: propsNav) => {
       >
         <li
           className="px-3 py-1.5 hover:shadow-md"
-          onClick={() => setPage("home")}
+          onClick={() => handleLink("home")}
         >
           Home
         </li>
         <li
           className="px-3 py-1.5 hover:shadow-md"
-          onClick={() => setPage("profil")}
+          onClick={() => handleLink("profil")}
         >
           Profil
         </li>
         <li
           className="px-3 py-1.5 hover:shadow-md"
-          onClick={() => setPage("achievement")}
+          value={"achievement"}
+          onClick={() => handleLink("achievement")}
         >
           Achievement
         </li>
         <li
           className="px-3 py-1.5 hover:shadow-md"
-          onClick={() => setPage("ranking")}
+          onClick={() => handleLink("ranking")}
         >
           Ranking
         </li>
