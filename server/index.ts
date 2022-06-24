@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-
+dotenv.config({ path: "./config/.env"});
 dotenv.config();
 
 const app: Express = express();
