@@ -16,3 +16,8 @@ Système tinder de question réponse basé sur reign
 Système de classement entre joueur mensuel ? + prix
 Badges ?
 Système d’énergie limitée quotidiennement + recharge durant les heures de prod
+
+Boutique permétant:
+- d'acheter des améliorations visuelles pour l'interface
+- des upgrades pour la maison qui modifieraientt le coût et l'impact des actions.
+Exemples : réducteur pour le pommeau de douche, panneaux solaires, baterie de stockage, appareil électroménager classe AAA,...
