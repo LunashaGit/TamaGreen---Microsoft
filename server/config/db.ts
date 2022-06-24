@@ -6,7 +6,7 @@ mongoose
       process.env.USER +
       ":" +
       process.env.PSWD +
-      "@cluster0.rkohusj.mongodb.net"
+      "@cluster0.rkohusj.mongodb.net/game-app"
   )
   .then(() => {
     console.log("⚡️[server]: Connect to MongoDB");
