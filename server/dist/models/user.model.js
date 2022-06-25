@@ -72,7 +72,23 @@ const userSchema = new mongoose_1.Schema({
     score: {
         type: Number,
         default: 0
-    }
+    },
+    happiness: {
+        type: Number,
+        required: true,
+    },
+    money: {
+        type: Number,
+        required: true,
+    },
+    wellBeing: {
+        type: Number,
+        required: true,
+    },
+    health: {
+        type: Number,
+        required: true,
+    },
 }, {
     timestamps: true,
 });
