@@ -82,10 +82,10 @@ export const statUpload = async(req: Request, res: Response) => {
     await UserModel.findByIdAndUpdate(
       req.body.userId,
       { $inc: {
-        ecology: +req.body.ecology,
-        money: +req.body.money,
-        wellBeing: +req.body.wellBeing,
-        health: +req.body.health,
+        ecology: req.body.ecology,
+        money: req.body.money,
+        wellBeing: req.body.wellBeing,
+        health: req.body.health,
       }},
       {
         new: true,
