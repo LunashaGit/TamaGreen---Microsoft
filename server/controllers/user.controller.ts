@@ -79,14 +79,12 @@ export const addEnergy = async (req: Request, res: Response) => {
 
 export const statUpload = async(req: Request, res: Response) => {
   try{
+    const { energy, ecology, money, wellBeing, health } = req.body;
+    
     await UserModel.findByIdAndUpdate(
-      req.body.userId,
-      { $inc: {
-        energy: req.body.energy,
-        ecology: req.body.ecology,
-        money: req.body.money,
-        wellBeing: req.body.wellBeing,
-        health: req.body.health,
+      { _id: req.params.id },
+      { $set: {
+        energy, ecology, money, wellBeing, health 
       }},
       {
         new: true,
@@ -94,10 +92,10 @@ export const statUpload = async(req: Request, res: Response) => {
         setDefaultsOnInsert: true,
       }
     )
-    .then((docs) => res.status(201).send(docs))
-    .catch((err) => res.status(500).send({ message: err }));
+    .then((docs) => res.status(200).send(docs))
+    .catch((err) => res.status(400).send({ message: err }));
   } catch(err){
-    return res.status(500).send({ message: err });
+    return res.status(400).send({ message: err });
   }
 }
 

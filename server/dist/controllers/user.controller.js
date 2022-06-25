@@ -93,22 +93,19 @@ const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.addEnergy = addEnergy;
 const statUpload = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield user_model_1.default.findByIdAndUpdate(req.body.userId, { $inc: {
-                energy: req.body.energy,
-                ecology: req.body.ecology,
-                money: req.body.money,
-                wellBeing: req.body.wellBeing,
-                health: req.body.health,
+        const { energy, ecology, money, wellBeing, health } = req.body;
+        yield user_model_1.default.findByIdAndUpdate({ _id: req.params.id }, { $set: {
+                energy, ecology, money, wellBeing, health
             } }, {
             new: true,
             upsert: true,
             setDefaultsOnInsert: true,
         })
-            .then((docs) => res.status(201).send(docs))
-            .catch((err) => res.status(500).send({ message: err }));
+            .then((docs) => res.status(200).send(docs))
+            .catch((err) => res.status(400).send({ message: err }));
     }
     catch (err) {
-        return res.status(500).send({ message: err });
+        return res.status(400).send({ message: err });
     }
 });
 exports.statUpload = statUpload;

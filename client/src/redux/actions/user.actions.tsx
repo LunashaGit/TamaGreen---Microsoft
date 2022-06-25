@@ -17,14 +17,9 @@ export const getUser = (uid: any) => {
 export const uploadStats = (data: any, id: string) => {
   return (dispatch: any) => {
     return axios
-      .post(`${process.env.REACT_APP_API_URL}api/user/upload`, data)
-      .then((res) => {
-        return axios
-          .get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
+      .put(`${process.env.REACT_APP_API_URL}api/user/upload/${id}`, data)
           .then((res) => {
             dispatch({ type: UPLOAD_STATS, payload: res.data });
-          })
-          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };
