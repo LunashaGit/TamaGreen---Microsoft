@@ -1,7 +1,9 @@
+import ProfilePage from "./ProfilePage";
+
 const Profil = () => {
   return (
     <div>
-      <h2>profil</h2>
+      <ProfilePage />
     </div>
   );
 };
