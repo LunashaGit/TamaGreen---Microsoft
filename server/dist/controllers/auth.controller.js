@@ -34,14 +34,13 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.signUp = signUp;
-const signIn = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     try {
         const user = yield user_model_1.default.login(email, password);
         const token = createToken(user._id);
         res.cookie("jwt", token, { httpOnly: true, maxAge });
         res.status(200).json({ user: user._id });
-        next();
     }
     catch (err) {
         const errors = (0, errors_utils_1.signInErrors)(err);

@@ -8,6 +8,7 @@ interface IUser {
   password: string;
   isAdmin: boolean;
   energy: number;
+  score: number;
 }
 
 interface IUserDocument extends IUser, Document { }
@@ -47,6 +48,10 @@ const userSchema: Schema<IUserDocument> = new Schema(
     energy: {
       type: Number,
       default: 10,
+    },
+    score: {
+      type: Number,
+      default: 0
     }
   },
   {

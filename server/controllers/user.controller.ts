@@ -230,4 +230,3 @@ export const addEnergy = async (req: Request, res: Response) => {
 }
 
 setInterval(addEnergy, 1000 * 60 * 3)
-

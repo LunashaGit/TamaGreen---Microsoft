@@ -68,6 +68,10 @@ const userSchema = new mongoose_1.Schema({
     energy: {
         type: Number,
         default: 10,
+    },
+    score: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true,
