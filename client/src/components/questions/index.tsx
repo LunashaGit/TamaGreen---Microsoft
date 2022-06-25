@@ -1,16 +1,27 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uploadStats } from "../../redux/actions/user.actions";
 
 const Questions = () => {
   const questionData = useSelector((state: any) => state.questionReducer);
   const userData = useSelector((state: any) => state.userReducer);
   const [count, setCount] = useState<number>(0);
+  const [energy, setEnergy] = useState<any>(0);
+  const [ecology, setEcology] = useState<any>(1);
+  const [health, setHealth] = useState<any>(2);
+  const [wellBeing, setWellBeing] = useState<any>(3);
+  const [money, setMoney] = useState<any>(410);
+  const dispatch = useDispatch();
   const show = questionData[count];
   console.log(show);
   console.log(userData);
 
   const handleResponse = (e: string) => {
     if (count <= 4) {
+      setEnergy(userData.energy - 2);
+      const data = { energy, ecology, health, wellBeing, money };
+
+      dispatch<any>(uploadStats(data, userData._id));
       setCount(count + 1);
     }
   };
@@ -22,7 +33,7 @@ const Questions = () => {
       </div>
       <div className="bg-gray-500 rounded-xl row-span-4 relative mb-2">
         <p>energy :{userData.energy}</p>
-        <p>happiness :{userData.happiness}</p>
+        <p>ecology :{userData.ecology}</p>
         <p>health :{userData.health}</p>
         <p>wellBeing :{userData.wellBeing}</p>
         <p>money :{userData.money}</p>
