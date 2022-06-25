@@ -8,6 +8,11 @@ interface IUser {
   password: string;
   isAdmin: boolean;
   energy: number;
+  score: number;
+  happiness: number;
+  money: number;
+  wellBeing: number;
+  health: number;
 }
 
 interface IUserDocument extends IUser, Document { }
@@ -47,7 +52,27 @@ const userSchema: Schema<IUserDocument> = new Schema(
     energy: {
       type: Number,
       default: 10,
-    }
+    },
+    score: {
+      type: Number,
+      default: 0
+    },
+    happiness :{
+      type : Number,
+      default: 50
+    },
+    money :{
+      type : Number,
+      default: 50
+    },
+    wellBeing :{
+      type : Number,
+      default: 50
+    },
+    health :{
+      type : Number,
+      default: 50
+    },
   },
   {
     timestamps: true,
