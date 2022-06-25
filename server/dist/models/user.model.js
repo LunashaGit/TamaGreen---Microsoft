@@ -73,7 +73,7 @@ const userSchema = new mongoose_1.Schema({
         type: Number,
         default: 0
     },
-    happiness: {
+    ecology: {
         type: Number,
         default: 50
     },

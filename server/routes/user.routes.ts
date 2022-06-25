@@ -14,5 +14,6 @@ router.get("/", userController.getAllUsers);
 router.get("/:id", userController.userInfo);
 router.put("/:id", userController.updateUser);
 router.patch("/:id", userController.deleteUser);
+router.post("/upload", userController.statUpload);
 
 export default router;

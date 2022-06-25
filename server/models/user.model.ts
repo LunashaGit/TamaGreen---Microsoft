@@ -9,7 +9,7 @@ interface IUser {
   isAdmin: boolean;
   energy: number;
   score: number;
-  happiness: number;
+  ecology: number;
   money: number;
   wellBeing: number;
   health: number;
@@ -57,7 +57,7 @@ const userSchema: Schema<IUserDocument> = new Schema(
       type: Number,
       default: 0
     },
-    happiness :{
+    ecology :{
       type : Number,
       default: 50
     },

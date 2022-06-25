@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addEnergy = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
+exports.statUpload = exports.addEnergy = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
 const user_model_1 = __importDefault(require("./../models/user.model"));
 const mongoose_1 = require("mongoose");
 const production_1 = require("../data/production");
@@ -91,5 +91,25 @@ const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }));
 });
 exports.addEnergy = addEnergy;
+const statUpload = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield user_model_1.default.findByIdAndUpdate(req.body.userId, { $inc: {
+                ecology: +req.body.ecology,
+                money: +req.body.money,
+                wellBeing: +req.body.wellBeing,
+                health: +req.body.health,
+            } }, {
+            new: true,
+            upsert: true,
+            setDefaultsOnInsert: true,
+        })
+            .then((docs) => res.status(201).send(docs))
+            .catch((err) => res.status(500).send({ message: err }));
+    }
+    catch (err) {
+        return res.status(500).send({ message: err });
+    }
+});
+exports.statUpload = statUpload;
 setInterval(exports.addEnergy, 1000 * 60 * 3);
 //# sourceMappingURL=user.controller.js.map

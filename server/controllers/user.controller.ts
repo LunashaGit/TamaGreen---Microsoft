@@ -77,4 +77,27 @@ export const addEnergy = async (req: Request, res: Response) => {
   });
 }
 
+export const statUpload = async(req: Request, res: Response) => {
+  try{
+    await UserModel.findByIdAndUpdate(
+      req.body.userId,
+      { $inc: {
+        ecology: +req.body.ecology,
+        money: +req.body.money,
+        wellBeing: +req.body.wellBeing,
+        health: +req.body.health,
+      }},
+      {
+        new: true,
+        upsert: true,
+        setDefaultsOnInsert: true,
+      }
+    )
+    .then((docs) => res.status(201).send(docs))
+    .catch((err) => res.status(500).send({ message: err }));
+  } catch(err){
+    return res.status(500).send({ message: err });
+  }
+}
+
 setInterval(addEnergy, 1000 * 60 * 3)
