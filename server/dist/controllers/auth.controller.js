@@ -30,7 +30,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (err) {
         const errors = (0, errors_utils_1.signUpErrors)(err);
-        res.status(400).send({ errors });
+        res.status(400).send({ err });
     }
 });
 exports.signUp = signUp;
@@ -44,7 +44,7 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (err) {
         const errors = (0, errors_utils_1.signInErrors)(err);
-        res.status(400).send({ errors });
+        res.status(400).send({ err });
     }
 });
 exports.signIn = signIn;

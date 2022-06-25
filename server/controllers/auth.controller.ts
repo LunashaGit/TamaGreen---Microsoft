@@ -18,7 +18,7 @@ export const signUp = async (req: Request, res: Response) => {
     res.status(201).send({ user: user._id });
   } catch (err) {
     const errors = signUpErrors(err);
-    res.status(400).send({ errors });
+    res.status(400).send({ err });
   }
 };
 export const signIn = async (req: Request, res: Response) => {
@@ -31,7 +31,7 @@ export const signIn = async (req: Request, res: Response) => {
     res.status(200).json({ user: user._id });
   } catch (err) {
     const errors = signInErrors(err);
-    res.status(400).send({ errors });
+    res.status(400).send({ err });
   }
 };
 

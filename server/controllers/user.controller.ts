@@ -25,7 +25,7 @@ export const updateUser = async (req: Request, res: Response) => {
       {
         $set: {
           pseudo: req.body.pseudo,
-          email: req.body.email,
+          email: req.body.email
         },
       },
       {
@@ -59,6 +59,7 @@ export const addEnergy = async (req: Request, res: Response) => {
     let theDate = new Date().getHours();
     try{
       if(element.energy >= 11){
+        console.log("Max")
       } else {
         production.forEach(pro => {
           if(theDate == pro.hours){
@@ -76,4 +77,4 @@ export const addEnergy = async (req: Request, res: Response) => {
   });
 }
 
-setInterval(addEnergy, 1000 * 60 * 60)
+setInterval(addEnergy, 1000 * 60 * 3)
