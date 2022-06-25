@@ -31,7 +31,7 @@ const Questions = () => {
       <div className="bg-gray-500 rounded-xl row-span-2 flex justify-center items-center p-3">
         <h3 className="text-center">{show && show.question}</h3>
       </div>
-      <div className="bg-gray-500 rounded-xl row-span-4 relative mb-2">
+      <div className="bg-gray-500 rounded-xl row-span-4 relative mb-2 bg-tamagoBg bg-cover">
         <p>energy :{userData.energy}</p>
         <p>ecology :{userData.ecology}</p>
         <p>health :{userData.health}</p>
