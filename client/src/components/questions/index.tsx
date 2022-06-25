@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { uploadStats } from "../../redux/actions/user.actions";
+import { updateStats } from "../../redux/actions/user.actions";
 
 const Questions = () => {
   const questionData = useSelector((state: any) => state.questionReducer);
@@ -21,7 +21,7 @@ const Questions = () => {
       setEnergy(userData.energy - 2);
       const data = { energy, ecology, health, wellBeing, money };
 
-      dispatch<any>(uploadStats(data, userData._id));
+      dispatch<any>(updateStats(data, userData._id));
       setCount(count + 1);
     }
   };

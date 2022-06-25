@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER";
-export const UPLOAD_STATS = "UPLOAD_STATS";
+export const UPDATE_STATS = "UPDATE_STATS";
 
 export const getUser = (uid: any) => {
   return (dispatch: any) => {
@@ -14,17 +14,15 @@ export const getUser = (uid: any) => {
   };
 };
 
-export const uploadStats = (data: any, id: string) => {
+export const updateStats = (userId: any, data: any) => {
   return (dispatch: any) => {
     return axios
-      .post(`${process.env.REACT_APP_API_URL}api/user/upload`, data)
+      .put(`${process.env.REACT_APP_API_URL}api/user/${userId}`, data)
       .then((res) => {
-        return axios
-          .get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
-          .then((res) => {
-            dispatch({ type: UPLOAD_STATS, payload: res.data });
-          })
-          .catch((err) => console.log(err));
+        dispatch({
+          type: UPDATE_STATS,
+          payload: data,
+        });
       })
       .catch((err) => console.log(err));
   };
