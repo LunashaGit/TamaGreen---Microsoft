@@ -38,10 +38,13 @@ export const updateQuestion = async (req: Request, res: Response) => {
       { _id: req.params.id },
       {
         $set: {
-          spotName: req.body.spotName,
-          latitude: req.body.latitude,
-          longitude: req.body.longitude,
-          description: req.body.description,
+          question: req.body.question,
+          answerA: req.body.answerA,
+          answerB: req.body.answerB,
+          happiness: req.body.happiness,
+          money: req.body.money,
+          wellBeing: req.body.wellBeing,
+          health: req.body.health,
         },
       },
       {

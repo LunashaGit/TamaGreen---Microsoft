@@ -47,10 +47,13 @@ const updateQuestion = (req, res) => __awaiter(void 0, void 0, void 0, function*
     try {
         yield question_model_1.default.findOneAndUpdate({ _id: req.params.id }, {
             $set: {
-                spotName: req.body.spotName,
-                latitude: req.body.latitude,
-                longitude: req.body.longitude,
-                description: req.body.description,
+                question: req.body.question,
+                answerA: req.body.answerA,
+                answerB: req.body.answerB,
+                happiness: req.body.happiness,
+                money: req.body.money,
+                wellBeing: req.body.wellBeing,
+                health: req.body.health,
             },
         }, {
             new: true,

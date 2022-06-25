@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addEnergy = exports.deleteRequestFriend = exports.acceptFriend = exports.addFriend = exports.unfollow = exports.follow = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
+exports.addEnergy = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
 const user_model_1 = __importDefault(require("./../models/user.model"));
 const mongoose_1 = require("mongoose");
 const production_1 = require("../data/production");
@@ -35,7 +35,8 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         yield user_model_1.default.findOneAndUpdate({ _id: req.params.id }, {
             $set: {
-                bio: req.body.bio,
+                pseudo: req.body.pseudo,
+                email: req.body.email,
             },
         }, {
             new: true,
@@ -64,130 +65,20 @@ const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.deleteUser = deleteUser;
-const follow = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!mongoose_1.Types.ObjectId.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
-    }
-    else if (!mongoose_1.Types.ObjectId.isValid(req.body.idToFollow)) {
-        return res.status(400).send("Follow unknown : " + req.body.idToFollow);
-    }
-    try {
-        yield user_model_1.default.findByIdAndUpdate(req.params.id, { $addToSet: { following: req.body.idToFollow } }, { new: true, upsert: true })
-            .then((docs) => res.status(200).json(docs))
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.body.idToFollow, { $addToSet: { followers: req.params.id } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-    }
-    catch (err) {
-        return res.status(400).send({ message: err });
-    }
-});
-exports.follow = follow;
-const unfollow = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!mongoose_1.Types.ObjectId.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
-    }
-    else if (!mongoose_1.Types.ObjectId.isValid(req.body.idToUnfollow)) {
-        return res.status(400).send("Unfollow unknown : " + req.body.idToUnfollow);
-    }
-    try {
-        yield user_model_1.default.findByIdAndUpdate(req.params.id, { $pull: { following: req.body.idToUnfollow } }, { new: true, upsert: true })
-            .then((docs) => res.status(200).json(docs))
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.body.idToUnfollow, { $pull: { followers: req.params.id } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-    }
-    catch (err) {
-        return res.status(400).send({ message: err });
-    }
-});
-exports.unfollow = unfollow;
-const addFriend = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!mongoose_1.Types.ObjectId.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
-    }
-    else if (!mongoose_1.Types.ObjectId.isValid(req.params.idToFollow)) {
-        return res.status(400).send("Follow unknown : " + req.params.idToFollow);
-    }
-    try {
-        yield user_model_1.default.findByIdAndUpdate(req.params.id, { $addToSet: { friendRequestSend: req.params.idToFollow } }, { new: true, upsert: true })
-            .then((docs) => res.status(200).json(docs))
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.params.idToFollow, { $addToSet: { friendRequestReceived: req.params.id } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-    }
-    catch (err) {
-        return res.status(400).send({ message: err });
-    }
-});
-exports.addFriend = addFriend;
-const acceptFriend = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!mongoose_1.Types.ObjectId.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
-    }
-    else if (!mongoose_1.Types.ObjectId.isValid(req.params.idToAccept)) {
-        return res.status(400).send("Follow unknown : " + req.params.idToAccept);
-    }
-    try {
-        yield user_model_1.default.findByIdAndUpdate(req.params.id, { $pull: { friendRequestSend: req.params.idToAccept } })
-            .then((docs) => res.status(200).json(docs))
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.params.idToAccept, { $pull: { friendRequestReceived: req.params.id } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.params.id, { $addToSet: { friends: req.params.idToAccept } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.params.idToAccept, { $addToSet: { friends: req.params.id } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-    }
-    catch (err) {
-        return res.status(400).send({ message: err });
-    }
-});
-exports.acceptFriend = acceptFriend;
-const deleteRequestFriend = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!mongoose_1.Types.ObjectId.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
-    }
-    else if (!mongoose_1.Types.ObjectId.isValid(req.params.idToAccept)) {
-        return res.status(400).send("Follow unknown : " + req.params.idToAccept);
-    }
-    try {
-        yield user_model_1.default.findByIdAndUpdate(req.params.id, { $pull: { friendRequestSend: req.params.idToAccept } })
-            .then((docs) => res.status(200).json(docs))
-            .catch((err) => res.status(400).send({ message: err }));
-        yield user_model_1.default.findByIdAndUpdate(req.params.idToAccept, { $pull: { friendRequestReceived: req.params.id } }, { new: true, upsert: true })
-            .then()
-            .catch((err) => res.status(400).send({ message: err }));
-    }
-    catch (err) {
-        return res.status(400).send({ message: err });
-    }
-});
-exports.deleteRequestFriend = deleteRequestFriend;
 const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     (yield user_model_1.default.find()).forEach((element) => __awaiter(void 0, void 0, void 0, function* () {
         let theDate = new Date().getHours();
         try {
-            console.log(element.energy);
             if (element.energy >= 11) {
-                console.log("Max");
             }
             else {
                 production_1.production.forEach(pro => {
                     if (theDate == pro.hours) {
                         if (pro.pick >= 0.50) {
                             element.updateOne({ $inc: { energy: +1 } }).exec();
-                            console.log("+1");
                         }
                         else if (pro.pick >= 0.80) {
                             element.updateOne({ $inc: { energy: +2 } }).exec();
-                            console.log("+2");
                         }
                     }
                 });
@@ -199,5 +90,5 @@ const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }));
 });
 exports.addEnergy = addEnergy;
-setInterval(exports.addEnergy, 1000 * 60 * 3);
+setInterval(exports.addEnergy, 1000 * 60 * 60);
 //# sourceMappingURL=user.controller.js.map
