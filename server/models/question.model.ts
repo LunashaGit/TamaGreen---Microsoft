@@ -4,10 +4,15 @@ interface IQuestion {
     question : string;
     answerA : string;
     answerB: string;
-    happiness: number;
-    money: number;
-    wellBeing: number;
-    health: number;
+    ecologyA: number;
+    moneyA: number;
+    wellBeingA: number;
+    healthA: number;
+    ecologyB: number;
+    moneyB: number;
+    wellBeingB: number;
+    healthB: number;
+    didUKnow: string;
 }
 
 interface IQuestionDocument extends IQuestion, Document { }
@@ -33,22 +38,47 @@ const questionSchema: Schema<IQuestionDocument> = new Schema(
         type : String,
         required: true,
       },
-      happiness :{
+      ecologyA :{
         type : Number,
         required: true,
       },
-      money :{
+      moneyA :{
         type : Number,
         required: true,
       },
-      wellBeing :{
+      wellBeingA :{
         type : Number,
         required: true,
       },
-      health :{
+      healthA :{
         type : Number,
         required: true,
       },
+      ecologyB :{
+        type : Number,
+        required: true,
+      },
+      moneyB :{
+        type : Number,
+        required: true,
+      },
+      wellBeingB :{
+        type : Number,
+        required: true,
+      },
+      healthB :{
+        type : Number,
+        required: true,
+      },
+      didUKnow :{
+        type : String,
+        required: true,
+        minLength: 8,
+        maxLength: 255,
+        unique: true,
+        trim: true,
+      },
+      
     }
 );
 

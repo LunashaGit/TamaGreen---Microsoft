@@ -41,21 +41,45 @@ const questionSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    happiness: {
+    ecologyA: {
         type: Number,
         required: true,
     },
-    money: {
+    moneyA: {
         type: Number,
         required: true,
     },
-    wellBeing: {
+    wellBeingA: {
         type: Number,
         required: true,
     },
-    health: {
+    healthA: {
         type: Number,
         required: true,
+    },
+    ecologyB: {
+        type: Number,
+        required: true,
+    },
+    moneyB: {
+        type: Number,
+        required: true,
+    },
+    wellBeingB: {
+        type: Number,
+        required: true,
+    },
+    healthB: {
+        type: Number,
+        required: true,
+    },
+    didUKnow: {
+        type: String,
+        required: true,
+        minLength: 8,
+        maxLength: 255,
+        unique: true,
+        trim: true,
     },
 });
 const QuestionModel = mongoose_1.default.model("question", questionSchema);

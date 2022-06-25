@@ -9,14 +9,14 @@ export const getAllQuestion = async (req: Request, res: Response) => {
 };
 
 export const createQuestion = async (req: Request, res: Response) => {
-  const { question, answerA, answerB, happiness, money, wellBeing, health } = req.body;
+  const { question, answerA, answerB, ecologyA, moneyA, wellBeingA, healthA, ecologyB, moneyB, wellBeingB, healthB, didUKnow } = req.body;
 
   try {
-    const questionGlobal = await QuestionModel.create({ question, answerA, answerB, happiness, money, wellBeing, health });
+    const questionGlobal = await QuestionModel.create({ question, answerA, answerB, ecologyA, moneyA, wellBeingA, healthA, ecologyB, moneyB, wellBeingB, healthB, didUKnow });
     res.status(201).send({ question: questionGlobal._id });
   } catch (err) {
     const errors = createQuestionErrors(err);
-    res.status(400).send({ errors });
+    res.status(400).send({ err });
   }
 };
 
@@ -41,10 +41,15 @@ export const updateQuestion = async (req: Request, res: Response) => {
           question: req.body.question,
           answerA: req.body.answerA,
           answerB: req.body.answerB,
-          happiness: req.body.happiness,
-          money: req.body.money,
-          wellBeing: req.body.wellBeing,
-          health: req.body.health,
+          ecologyA: req.body.ecologyA,
+          moneyA: req.body.moneyA,
+          wellBeingA: req.body.wellBeingA,
+          healthA: req.body.healthA,
+          ecologyB: req.body.ecologyB,
+          moneyB: req.body.moneyB,
+          wellBeingB: req.body.wellBeingB,
+          healthB: req.body.healthB,
+          didUKnow: req.body.didUKnow,
         },
       },
       {
