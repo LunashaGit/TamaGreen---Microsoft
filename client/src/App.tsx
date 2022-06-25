@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import Achievement from "./components/achievement";
-import Avatar from "./components/avatar";
 import Dashboard from "./components/dashboard";
 import Navigation from "./components/navigation";
 import Profil from "./components/profil";
 import Questions from "./components/questions";
 import Ranking from "./components/ranking";
-
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { UidContext } from "./components/AppContext";
 import { getUser } from "./redux/actions/user.actions";
 import SignIn from "./components/log/SignIn";
 import SignUp from "./components/log/SignUp";
+import { getQuestion } from "./redux/actions/question.actions";
 
 const App = () => {
   const [page, setPage] = useState<string>("home");
   const [uid, setUid] = useState(null);
   const [signInOpen, setSignInOpen] = useState<boolean>(false);
   const [signUpOpen, setSignUpOpen] = useState<boolean>(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchToken = async () => {
@@ -37,8 +37,10 @@ const App = () => {
     fetchToken();
     if (uid) {
       dispatch<any>(getUser(uid));
+      dispatch<any>(getQuestion());
     }
   }, [dispatch, uid]);
+
   return (
     <UidContext.Provider value={uid}>
       {uid ? (
@@ -48,10 +50,7 @@ const App = () => {
             {page === "home" && (
               <>
                 <Dashboard />
-                <section className="ml-6 px-6 h-full grid gap-4 grid-rows-6">
-                  <Questions />
-                  <Avatar />
-                </section>
+                <Questions />
               </>
             )}
             {page === "profil" && <Profil />}

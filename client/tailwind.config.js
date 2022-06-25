@@ -2,7 +2,20 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        achivAnim: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 };

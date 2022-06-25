@@ -1,6 +1,5 @@
 import * as rtr from "express";
 import * as questionController from "../controllers/question.controller";
-import multer from "multer";
 
 const router = rtr.Router();
 

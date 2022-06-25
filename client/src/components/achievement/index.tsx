@@ -7,7 +7,11 @@ const Achievement = () => {
     <div className="grid grid-cols-2 gap-8 p-6">
       {nbr &&
         nbr.map((nb) => (
-          <img src={`./images/achievements/achiev-${nb}.png`} alt={`${nb}`} />
+          <img
+            src={`./images/achievements/achiev-${nb}.png`}
+            alt={`${nb}`}
+            className={`animate-achivAnim ease-in-out duration-[${nb}000ms]`}
+          />
         ))}
     </div>
   );
