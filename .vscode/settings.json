@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a90cb0f1-2c36-469f-a8f3-3456bf6fb40e/microsoft.web/sites/subscriptions/a90cb0f1-2c36-469f-a8f3-3456bf6fb40e/resourceGroups/HITW/providers/Microsoft.Web/sites/Tamagreen",
+    "appService.deploySubpath": "."
+}
