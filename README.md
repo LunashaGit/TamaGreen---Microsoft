@@ -1,8 +1,8 @@
-# Project:  Affordable and Clean Energy
+# Project:  Affordable and Clean Energy - TamagreenApp
 
 ## For:  Microsoft
 
-### Made by : Bastien Fajs, Matthew Hons, Luna Muylkens, Nicolas Radic, Stéphane Gillon
+### Made by : Bastien Fajs, Luna Muylkens, Matthew Hons, Nicolas Radic, Stéphane Gillon
 
 #### When : During the hack in the woods Hackathon
 
@@ -15,3 +15,21 @@ Technology and clever software really can make a difference here. More and more 
 Help us design a smart and interactive energy grid that helps users reduce their consumption, use energy when there is an abundance of green energy available and optimize their contributions of
 energy to the grid.
 
+---
+#### Explanation of our project:
+
+We decided to make a little daily <strong>game</strong> to raise awareness about the energy consumption during the daily life. The goal is to <strong>change the mindset</strong> of the users about the subject of <strong>ecology</strong> and to aware them when there is a peak of green energy production. This by asking questions with two possible answers which will have an effect (reduce or increase) on your four stats (well-being, ecology, health, money). Each question will cost two energy and you have max eleven of it. You will gain energy when there is a daily peak of energy. The objectif is to maintain alive your avatar (a tamagotchi like), by keeping them above 0.
+After the questions you will have a little explanation about the question and after 5 you will have a random usefull fact about something interesting.
+
+There is a ranking system, a profile page, a dashboard and achievement badges.
+
+The <strong>ranking system</strong> is based on points that you will win earn when you complete challenges, earn badges and the longer you keep your avatar alive.
+
+The <strong>profile page</strong> is where you can see your score and manage your information. You will have the hability to recreate your family in the app, the goal is to be able to track your consumption and production habits by enter some fields (Your home devices, your family state ...).
+
+Which brings us to the next point, the <strong>dashboard</strong>. It will consist of a global view of categories. These will contain the data who will be showed by chart and graph (consumption, production, money saved ...) and each of these will be detailled by week, month, year ...
+
+The <strong>achievement badges</strong> will be earned when you complete a challenge or you achieve some success.
+
+
+##### More features that we have thought of

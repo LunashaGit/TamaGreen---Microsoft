@@ -1,3 +1,11 @@
+import {
+  faBolt,
+  faFaceLaughBeam,
+  faHeartPulse,
+  faLeaf,
+  faMoneyBill1,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadStats } from "../../redux/actions/user.actions";
@@ -98,20 +106,43 @@ const Questions = () => {
       <div className="bg-gray-500 rounded-xl row-span-2 flex justify-center items-center p-3">
         <h3 className="text-center">{show && show.question}</h3>
       </div>
-      <div className="bg-gray-500 rounded-xl row-span-4 relative mb-2">
-        <p>energy :{energy}</p>
-        <p>ecology :{ecology}</p>
-        <p>health :{health}</p>
-        <p>wellBeing :{wellBeing}</p>
-        <p>money :{money}</p>
+      <div className="border row-span-4 px-10 py-16 relative flex flex-col items-center justify-between mb-2 bg-[url('../../public/images/whatagotchi_empty.png')] bg-cover">
+        <div
+          className={`${
+            energy && energy < 5
+              ? "bg-red-500"
+              : energy && energy < 8
+              ? "bg-yellow-500"
+              : "bg-green-500"
+          } w-40 h-40 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 bg-[url('../../public/images/cell_phones_hello.png')] bg-cover`}
+        />
+        <div className="flex justify-between w-full">
+          <p>
+            <FontAwesomeIcon icon={faBolt} /> {energy} / 11
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faMoneyBill1} /> {money}
+          </p>
+        </div>
+        <div className="flex justify-between w-full">
+          <p>
+            <FontAwesomeIcon icon={faLeaf} /> {ecology}%
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faHeartPulse} /> {health}%
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faFaceLaughBeam} /> {wellBeing}%
+          </p>
+        </div>
         <button
-          className="absolute w-28 h-12 border border-black bg-white -bottom-2 -left-2 rounded-lg"
+          className="absolute w-32 h-12 border border-black bg-white -bottom-2 left-2 rounded-lg"
           onClick={() => handleRight()}
         >
           {show && show.answerA}
         </button>
         <button
-          className="absolute w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
+          className="absolute w-32 h-12 border border-black bg-white -bottom-2 right-2 rounded-lg"
           onClick={() => handleLeft()}
         >
           {show && show.answerB}
