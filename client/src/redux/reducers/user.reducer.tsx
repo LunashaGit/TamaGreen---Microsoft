@@ -1,4 +1,4 @@
-import { GET_USER, UPDATE_STATS } from "../actions/user.actions";
+import { GET_USER, UPLOAD_STATS } from "../actions/user.actions";
 
 interface stateProps {
   pseudo?: string;
@@ -24,11 +24,8 @@ export default function userReducer(state = initialState, action: any) {
   switch (action.type) {
     case GET_USER:
       return action.payload;
-    case UPDATE_STATS:
-      return {
-        ...state,
-        data: action.payload,
-      };
+    case UPLOAD_STATS:
+      return action.payload;
     default:
       return state;
   }
