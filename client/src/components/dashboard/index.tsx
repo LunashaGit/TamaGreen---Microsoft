@@ -14,7 +14,7 @@ const Dashboard = () => {
     >
       <div className="w-screen grid grid-cols-3 ">
   {dashboardData && dashboardData.map((icon) => (
-    isOpen ? ( <div key={icon.id} className="flex flex-col justify-center items-center h-36"><i className="mb-1">{icon.logo}</i><p>{icon.title}</p></div>
+    isOpen ? ( <div key={icon.id} className="flex flex-col justify-center items-center h-36"><i className={`${icon.color} mb-1`}>{icon.logo}</i><p>{icon.title}</p></div>
      ): ""
   ))}
   </div>
