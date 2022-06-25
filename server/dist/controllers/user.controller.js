@@ -36,7 +36,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         yield user_model_1.default.findOneAndUpdate({ _id: req.params.id }, {
             $set: {
                 pseudo: req.body.pseudo,
-                email: req.body.email,
+                email: req.body.email
             },
         }, {
             new: true,
@@ -70,6 +70,7 @@ const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let theDate = new Date().getHours();
         try {
             if (element.energy >= 11) {
+                console.log("Max");
             }
             else {
                 production_1.production.forEach(pro => {
@@ -90,5 +91,5 @@ const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }));
 });
 exports.addEnergy = addEnergy;
-setInterval(exports.addEnergy, 1000 * 60 * 60);
+setInterval(exports.addEnergy, 1000 * 60 * 3);
 //# sourceMappingURL=user.controller.js.map

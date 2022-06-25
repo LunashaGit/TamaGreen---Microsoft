@@ -59,19 +59,19 @@ const userSchema: Schema<IUserDocument> = new Schema(
     },
     happiness :{
       type : Number,
-      required: true,
+      default: 50
     },
     money :{
       type : Number,
-      required: true,
+      default: 50
     },
     wellBeing :{
       type : Number,
-      required: true,
+      default: 50
     },
     health :{
       type : Number,
-      required: true,
+      default: 50
     },
   },
   {
