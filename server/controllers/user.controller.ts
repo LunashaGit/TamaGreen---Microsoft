@@ -82,6 +82,7 @@ export const statUpload = async(req: Request, res: Response) => {
     await UserModel.findByIdAndUpdate(
       req.body.userId,
       { $inc: {
+        energy: req.body.energy,
         ecology: req.body.ecology,
         money: req.body.money,
         wellBeing: req.body.wellBeing,

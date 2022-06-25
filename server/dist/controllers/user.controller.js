@@ -94,6 +94,7 @@ exports.addEnergy = addEnergy;
 const statUpload = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield user_model_1.default.findByIdAndUpdate(req.body.userId, { $inc: {
+                energy: req.body.energy,
                 ecology: req.body.ecology,
                 money: req.body.money,
                 wellBeing: req.body.wellBeing,
