@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import UserModel from "./../models/user.model";
 import { Types } from "mongoose";
-import cron from "node-cron";
-
+import { production } from "../data/production";
 export const getAllUsers = async (req: Request, res: Response) => {
   const users = await UserModel.find().select("-password");
   res.status(200).send(users);
@@ -206,11 +205,23 @@ export const deleteRequestFriend = async (req: Request, res: Response) => {
 
 export const addEnergy = async (req: Request, res: Response) => {
   (await UserModel.find()).forEach(async element => {
+    let theDate = new Date().getHours();
     try{
-      if(element.energy == 10){
-        console.log("nop")
+      console.log(element.energy)
+      if(element.energy >= 11){
+        console.log("Max")
       } else {
-        element.updateOne({$inc: {energy: +2}}).exec();
+        production.forEach(pro => {
+          if(theDate == pro.hours){
+            if(pro.pick >= 0.50 ){
+              element.updateOne({$inc: {energy: +1}}).exec();
+              console.log("+1")
+            } else if(pro.pick >= 0.80){
+              element.updateOne({$inc: {energy: +2}}).exec();
+              console.log("+2")
+            }
+          }
+        })
       }
     } catch(err){
       return console.log(err)
@@ -218,4 +229,5 @@ export const addEnergy = async (req: Request, res: Response) => {
   });
 }
 
-setInterval(addEnergy, 1000 * 60 * 60 * 24 * 4)
+setInterval(addEnergy, 1000 * 60 * 3)
+

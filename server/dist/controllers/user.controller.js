@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.addEnergy = exports.deleteRequestFriend = exports.acceptFriend = exports.addFriend = exports.unfollow = exports.follow = exports.deleteUser = exports.updateUser = exports.userInfo = exports.getAllUsers = void 0;
 const user_model_1 = __importDefault(require("./../models/user.model"));
 const mongoose_1 = require("mongoose");
+const production_1 = require("../data/production");
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield user_model_1.default.find().select("-password");
     res.status(200).send(users);
@@ -171,12 +172,25 @@ const deleteRequestFriend = (req, res) => __awaiter(void 0, void 0, void 0, func
 exports.deleteRequestFriend = deleteRequestFriend;
 const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     (yield user_model_1.default.find()).forEach((element) => __awaiter(void 0, void 0, void 0, function* () {
+        let theDate = new Date().getHours();
         try {
-            if (element.energy == 10) {
-                console.log("nop");
+            console.log(element.energy);
+            if (element.energy >= 11) {
+                console.log("Max");
             }
             else {
-                element.updateOne({ $inc: { energy: +2 } }).exec();
+                production_1.production.forEach(pro => {
+                    if (theDate == pro.hours) {
+                        if (pro.pick >= 0.50) {
+                            element.updateOne({ $inc: { energy: +1 } }).exec();
+                            console.log("+1");
+                        }
+                        else if (pro.pick >= 0.80) {
+                            element.updateOne({ $inc: { energy: +2 } }).exec();
+                            console.log("+2");
+                        }
+                    }
+                });
             }
         }
         catch (err) {
@@ -185,5 +199,5 @@ const addEnergy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }));
 });
 exports.addEnergy = addEnergy;
-setInterval(exports.addEnergy, 1000 * 60 * 60 * 24 * 4);
+setInterval(exports.addEnergy, 1000 * 60 * 3);
 //# sourceMappingURL=user.controller.js.map

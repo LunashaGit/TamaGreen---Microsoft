@@ -21,7 +21,7 @@ export const signUp = async (req: Request, res: Response) => {
     res.status(400).send({ errors });
   }
 };
-export const signIn = async (req: Request, res: Response) => {
+export const signIn = async (req: Request, res: Response, next: () => void) => {
   const { email, password } = req.body;
 
   try {
@@ -29,6 +29,7 @@ export const signIn = async (req: Request, res: Response) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge });
     res.status(200).json({ user: user._id });
+    next();
   } catch (err) {
     const errors = signInErrors(err);
     res.status(400).send({ errors });
