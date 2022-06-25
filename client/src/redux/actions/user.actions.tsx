@@ -14,7 +14,7 @@ export const getUser = (uid: any) => {
   };
 };
 
-export const updateStats = (id: any, data: any) => {
+export const uploadStats = (data: any, id: string) => {
   return (dispatch: any) => {
     return axios
       .put(`${process.env.REACT_APP_API_URL}api/user/upload/${id}`, data)
