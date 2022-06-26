@@ -44,7 +44,7 @@ const App = () => {
   return (
     <UidContext.Provider value={uid}>
       {uid ? (
-        <div className="h-screen">
+        <div className="mx-auto w-[375px] h-[667px]">
           <Navigation page={page} setPage={setPage} />
           <main className="h-[calc(100%-4rem)] pb-1 relative">
             {page === "home" && (
