@@ -51,6 +51,7 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 - Notification each day a little bit before the peak of energy.
 - The death of the avatar will result in the loss of part of the user's score.
 - Advice given on improvements you can do daily to save energy and money, based on the data you give the app and your style of answers.
+- Bonuses are awarded based on your actual environment (solar panel, water tank ...).
 
 ---
 
@@ -62,4 +63,4 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 - LinkedIn : [Nicolas Radic](https://www.linkedin.com/in/nicolas-radic-902676230/) | Email : nicolas.radic05@gmail.com
 - LinkedIn : [Stéphane Gillon](https://www.linkedin.com/in/st%C3%A9phane-gillon-593b2b120/) | Email : stephanegillon@hotmail.com
 
-We are all web dev junior from [BeCode Liège](https://becode.org/fr/a-propos-de-nous/nos-campus/liege/).
+We are all web dev from [BeCode Liège](https://becode.org/fr/a-propos-de-nous/nos-campus/liege/).

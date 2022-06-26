@@ -8,7 +8,7 @@ const Ranking = () => {
   //console.log(numAscending);
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl p-6">Ranking</h1>
+      <h1 className="text-4xl p-6 text-[#246A73]">Ranking</h1>
       {numAscending && numAscending.slice(0,1).map((users:any)=>(
         
         <Card key={users._id} users={users} win={1}/>

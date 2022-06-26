@@ -30,7 +30,7 @@ const Navigation = ({ page, setPage }: propsNav) => {
   };
   return (
     <nav className="w-full p-3 flex justify-between items-center h-16 relative">
-      <h1>TamaGreen</h1>
+      <h1 className="text-2xl">TamaGreen</h1>
       <FontAwesomeIcon
         icon={faGear}
         className={`text-4xl text-[#246A73] drop-shadow-md ${isOpen ? "animate-[spin_2s_infinite]" : ""}`}
