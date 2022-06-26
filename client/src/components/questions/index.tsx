@@ -118,10 +118,10 @@ const Questions = () => {
   
   return (
     <section className="ml-6 px-6 h-full grid gap-4 grid-rows-6">
-      <div className="bg-gray-500 rounded-xl row-span-2 flex justify-center items-center p-3">
-        <h3 className="text-center">{show && show.question}</h3>
+      <div className="bg-[#160F29] rounded-xl row-span-2 flex justify-center items-center p-3">
+        <h3 className="text-center text-white">{show && show.question}</h3>
       </div>
-      <div className="border row-span-4 px-10 py-16 relative flex flex-col items-center justify-between mb-2 bg-[url('../../public/images/whatagotchi_empty.png')] bg-cover">
+      <div className="text-white drop-shadow-md row-span-4 px-10 py-16 relative flex flex-col items-center justify-between mb-2 bg-[url('../../public/images/whatagotchi_empty.png')] bg-cover">
         <div
           className={`${
             energy && energy < 5
@@ -129,7 +129,7 @@ const Questions = () => {
               : energy && energy < 8
               ? "bg-yellow-500"
               : "bg-green-500"
-          } w-40 h-40 absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 bg-[url('../../public/images/cell_phones_hello.png')] bg-cover`}
+          } w-40 h-40 absolute shadow-md top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 bg-[url('../../public/images/cell_phones_hello.png')] bg-cover`}
         />
         <div className="flex justify-between w-full">
           <p>
@@ -151,13 +151,13 @@ const Questions = () => {
           </p>
         </div>
         <button
-          className="absolute w-32 h-12 border border-black bg-white -bottom-2 left-2 rounded-lg"
+          className="absolute w-32 h-12 border  bg-[#160F29] -bottom-2 left-2 rounded-lg"
           onClick={() => handleRight()}
         >
           {show && show.answerA}
         </button>
         <button
-          className="absolute w-32 h-12 border border-black bg-white -bottom-2 right-2 rounded-lg"
+          className="absolute w-32 h-12 border  bg-[#160F29] -bottom-2 right-2 rounded-lg"
           onClick={() => handleLeft()}
         >
           {show && show.answerB}
@@ -165,10 +165,11 @@ const Questions = () => {
       </div>
       {popInfo && (
         <div className="absolute top-0 left-0 bg-black/90 w-screen h-screen z-20 flex items-center justify-center">
-          <div className="bg-white h-52 w-60 flex flex-col items-center justify-between p-6">
-            <p className="text-center">{show.didUKnow}</p>
+          <div className="bg-white w-60 flex flex-col items-center justify-between p-6">
+          <h3 className="text-center text-2xl font-bold">Explain</h3>
+            <p className="text-center my-6">{show.didUKnow}</p>
             <button
-              className="w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
+              className="w-28 h-12 border bg-[#246A73] text-white -bottom-2 -right-2 rounded-lg"
               onClick={handleInfo}
             >
               Okay !
@@ -178,10 +179,11 @@ const Questions = () => {
       )}
       {popNoEnergy && (
         <div className="absolute top-0 left-0 bg-black/90 w-screen h-screen z-20 flex items-center justify-center">
-          <div className="bg-white h-52 w-60 flex flex-col items-center justify-between p-6">
-            <p className="text-center">You have no more energy ! Please wait or refill</p>
+          <div className="bg-white w-60 flex flex-col items-center justify-between p-6">
+          <h3 className="text-center text-2xl font-bold">Out of energy</h3>
+            <p className="text-center my-6">You have no more energy ! Please wait or refill</p>
             <button
-              className="w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
+              className="w-28 h-12 border bg-[#246A73] text-white -bottom-2 -right-2 rounded-lg"
               onClick={closeEnergy}
             >
               Okay !
@@ -191,11 +193,12 @@ const Questions = () => {
       )}
       {popFunFact && (
         <div className="absolute top-0 left-0 bg-black/90 w-screen h-screen z-20 flex items-center justify-center">
-          <div className="bg-white h-72 w-60 flex flex-col items-center justify-between p-6">
-            <p className="text-center">Do you know that if you produce an exceed of energy, you will return it and pay an additionnal cost. 
+          <div className="bg-white w-72 flex flex-col items-center justify-between p-6">
+            <h3 className="text-center text-2xl font-bold">Fun fact</h3>
+            <p className="text-center my-6">Do you know that if you produce an exceed of energy, you will return it and pay an additionnal cost. 
             So CONSUME your energy when there is a peak of green energy production</p>
             <button
-              className="w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
+              className="w-28 h-12 border bg-[#246A73] text-white -bottom-2 -right-2 rounded-lg"
               onClick={closeFunFact}
             >
               Okay !

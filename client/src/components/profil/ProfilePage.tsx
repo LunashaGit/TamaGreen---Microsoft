@@ -23,7 +23,7 @@ const ProfilePage = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="flex flex-col items-center bg-gray-500 rounded-xl mx-6 ">
+      <div className="flex flex-col items-center bg-[#160F29] text-white rounded-xl mx-6 ">
         <h2 className="py-6 text-xl font-bold">Profil</h2>
         {userData && (
           <Avatar sx={{ mb: 1 }}>{userData.pseudo.slice(0, 1)}</Avatar>

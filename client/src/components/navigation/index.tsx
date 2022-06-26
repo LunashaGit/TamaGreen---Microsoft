@@ -33,7 +33,7 @@ const Navigation = ({ page, setPage }: propsNav) => {
       <h1>TamaGreen</h1>
       <FontAwesomeIcon
         icon={faGear}
-        className={`text-4xl ${isOpen ? "animate-spin" : ""}`}
+        className={`text-4xl text-[#246A73] drop-shadow-md ${isOpen ? "animate-[spin_2s_infinite]" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
       />
       <ul
