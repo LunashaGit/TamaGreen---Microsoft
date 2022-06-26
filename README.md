@@ -2,7 +2,9 @@
 
 ## For:  Microsoft
 
-### Made by : Bastien Fajs, Luna Muylkens, Matthew Hons, Nicolas Radic, Stéphane Gillon
+### Made by : [Bastien Fajs](https://github.com/SashBFa), [Luna Muylkens](https://github.com/lunashagit) , [Matthew Hons](https://github.com/MatthewHons), [Nicolas Radic](https://github.com/NicolasRadic), [Stéphane Gillon](https://github.com/rulles13).
+
+### [Link](https://tamagreen.azurewebsites.net/) to the deployed app (currently just on mobile design).
 
 #### When : During the hack in the woods Hackathon
 
@@ -19,7 +21,7 @@ energy to the grid.
 ---
 #### Explanation of our project:
 
-We decided to make a little daily <strong>game</strong> to raise awareness about the energy consumption during the daily life. The goal is to <strong>change the mindset</strong> of the users about the subject of <strong>ecology</strong> and to aware them when there is a peak of green energy production. This by asking questions with two possible answers which will have an effect (reduce or increase) on your four stats (well-being, ecology, health, money). Each question will cost two energy and you have max eleven of it. You will gain energy when there is a daily peak of energy. The objectif is to maintain alive your avatar (a tamagotchi like), by keeping them above 0.
+We decided to make a little daily <strong>game</strong> to raise awareness about the energy consumption during the daily life. The goal is to <strong>change the mindset</strong> of the users about the subject of <strong>ecology</strong> and to aware them when there is a peak of green energy production. This by asking questions with two possible answers which will have an effect (reduce or increase) on your four stats (well-being, ecology, health, money). Each question will cost two energy (you have max eleven of it) and some money. You will gain energy when there is a daily peak of energy. The objectif is to maintain alive your avatar (a tamagotchi like), by keeping them above 0.
 After the questions you will have a little explanation about the question and after 5 you will have a random usefull fact about something interesting.
 
 There is a ranking system, a profile page, a dashboard and achievement badges.
@@ -35,7 +37,29 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 
 ##### More features that we have thought of
 
+- The game is currently focused on energy, but it can be extended to other themes like water, gas ...
 - Possibility to scan your electricity meter
-- Connecting your electrical devices to the app
-- Possibility to buy more energy and styling for your avatar in the shop
+- Connecting your electrical devices to the app 
 - Top 3 of the ranking will receive discount voucher
+- In the shop you can buy : 
+    * More energy.
+    * Style for your avatar.
+    * Some bonuses
+- More energy per hour to play with during the daily peak of green energy production.
+- Some events will occur randomly during the game, giving you bonuses or penalties.
+- Money is given each four days (one month in game).
+- Notification each day a little bit before the peak of energy.
+- The death of the avatar will result in the loss of part of the user's score.
+- Advice given on improvements you can do daily to save energy and money, based on the data you give the app and your style of answers.
+
+---
+
+#### Link for LinkedIn and email : 
+
+- LinkedIn : [Bastien Fajs](https://www.linkedin.com/in/bastien-fajs-397706230/) | Email : bastienfajs@gmail.com
+- LinkedIn : [Luna Muylkens](https://www.linkedin.com/in/luna-muylkens/) | Email : lunamuylkens@gmail.com
+- LinkedIn : [Matthew Hons](https://www.linkedin.com/in/matthew-hons/) | Email : matthewhons19@gmail.com
+- LinkedIn : [Nicolas Radic](https://www.linkedin.com/in/nicolas-radic-902676230/) | Email : nicolas.radic05@gmail.com
+- LinkedIn : [Stéphane Gillon](https://www.linkedin.com/in/st%C3%A9phane-gillon-593b2b120/) | Email : stephanegillon@hotmail.com
+
+We are all web dev junior from [BeCode Liège](https://becode.org/fr/a-propos-de-nous/nos-campus/liege/).
