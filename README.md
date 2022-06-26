@@ -52,6 +52,8 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 - The death of the avatar will result in the loss of part of the user's score.
 - Advice given on improvements you can do daily to save energy and money, based on the data you give the app and your style of answers.
 
+---
+
 #### Link for LinkedIn and email : 
 
 - LinkedIn : [Bastien Fajs](https://www.linkedin.com/in/bastien-fajs-397706230/) | Email : bastienfajs@gmail.com
