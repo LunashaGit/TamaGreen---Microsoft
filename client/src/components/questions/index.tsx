@@ -20,11 +20,18 @@ const Questions = () => {
   const [wellBeing, setWellBeing] = useState<number>();
   const [money, setMoney] = useState<number>();
   const [popInfo, setPopInfo] = useState<boolean>(false);
+  const [popNoEnergy, setPopNoEnergy] = useState<boolean>(false);
+  const [popFunFact, setPopFunFact] = useState<boolean>(false);
   const dispatch = useDispatch();
   const show = questionData[count];
   // console.log(show);
   //console.log(userData);
 
+  useEffect(()=>{
+    if(count >= 5){
+      setPopFunFact(!popFunFact)
+    }
+  },[count])
   useEffect(() => {
     setEnergy(userData.energy);
     setEcology(userData.ecology);
@@ -59,10 +66,10 @@ const Questions = () => {
         setWellBeing(tmpWellBeing);
         setMoney(tmpMoney);
       } else {
-        console.log("erreur A1");
+        setPopFunFact(!popFunFact)
       }
     } else {
-      console.log("erreur A2");
+      setPopNoEnergy(!popNoEnergy)
     }
   };
   const handleLeft = () => {
@@ -90,17 +97,25 @@ const Questions = () => {
         setWellBeing(tmpWellBeing);
         setMoney(tmpMoney);
       } else {
-        console.log("erreur B1");
+        setPopFunFact(!popFunFact)
       }
     } else {
-      console.log("erreur B2");
+      setPopNoEnergy(!popNoEnergy)
     }
   };
   const handleInfo = () => {
     setCount(count + 1);
     setPopInfo(!popInfo);
   };
-
+  const closeEnergy = () => {
+    setPopNoEnergy(!popNoEnergy);
+  };
+  console.log(count)
+  const closeFunFact = () => {
+      setPopFunFact(!popFunFact);
+      setCount(0);
+  };
+  
   return (
     <section className="ml-6 px-6 h-full grid gap-4 grid-rows-6">
       <div className="bg-gray-500 rounded-xl row-span-2 flex justify-center items-center p-3">
@@ -155,6 +170,33 @@ const Questions = () => {
             <button
               className="w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
               onClick={handleInfo}
+            >
+              Okay !
+            </button>
+          </div>
+        </div>
+      )}
+      {popNoEnergy && (
+        <div className="absolute top-0 left-0 bg-black/90 w-screen h-screen z-20 flex items-center justify-center">
+          <div className="bg-white h-52 w-60 flex flex-col items-center justify-between p-6">
+            <p className="text-center">You have no more energy ! Please wait or refill</p>
+            <button
+              className="w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
+              onClick={closeEnergy}
+            >
+              Okay !
+            </button>
+          </div>
+        </div>
+      )}
+      {popFunFact && (
+        <div className="absolute top-0 left-0 bg-black/90 w-screen h-screen z-20 flex items-center justify-center">
+          <div className="bg-white h-72 w-60 flex flex-col items-center justify-between p-6">
+            <p className="text-center">Do you know that if you produce an exceed of energy, you will return it and pay an additionnal cost. 
+            So CONSUME your energy when there is a peak of green energy production</p>
+            <button
+              className="w-28 h-12 border border-black bg-white -bottom-2 -right-2 rounded-lg"
+              onClick={closeFunFact}
             >
               Okay !
             </button>

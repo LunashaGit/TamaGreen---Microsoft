@@ -6,6 +6,7 @@
 
 #### When : During the hack in the woods Hackathon
 
+#### Thematic : 
 The transition to affordable, reliable and sustainable energy is a major prerequisite in achieving net zero targets, that are required to stop (and reverse) global warming. 
 
 Solutions that will make a difference are renewable energy resources such as solar power, hydro power and wind power as well as the adoption of clean energy technologies and infrastructure. Not only the production of energy has an impact, but also efficient (green) energy usage and practice are a key driver.
@@ -33,3 +34,8 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 
 
 ##### More features that we have thought of
+
+- Possibility to scan your electricity meter
+- Connecting your electrical devices to the app
+- Possibility to buy more energy and styling for your avatar in the shop
+- Top 3 of the ranking will receive discount voucher

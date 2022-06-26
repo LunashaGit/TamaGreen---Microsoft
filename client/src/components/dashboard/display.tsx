@@ -5,7 +5,7 @@ export const dashboardData = [
     {
         id : 1,
         title: "Shop",
-        color: "text-gray-400",
+        color: "text-cyan-100",
         logo: <FontAwesomeIcon icon={faShop} size="2x" />,
     },
     {
@@ -46,14 +46,14 @@ export const dashboardData = [
     },
     {
         id : 8,
-        title: "Badges",
-        color: "text-stone-300",
+        title: "Ranking",
+        color: "text-lime-300",
         logo: <FontAwesomeIcon icon={faTrophy} size="2x" />
     },
     {
         id : 9,
         title: "Profil",
-        color: "text-stone-300",
+        color: "text-amber-300",
         logo: <FontAwesomeIcon icon={faUser} size="2x" />
     },
         
