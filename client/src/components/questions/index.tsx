@@ -115,7 +115,26 @@ const Questions = () => {
       setPopFunFact(!popFunFact);
       setCount(0);
   };
-  
+  let bgColor = "";
+  switch(energy){
+    case 0:
+    case 1:
+    case 2:
+    case 3:bgColor = "bg-red-500";
+           break
+    case 4:
+    case 5: 
+    case 6:
+    case 7:bgColor = "bg-yellow-500";
+           break
+    case 8:
+    case 9:
+    case 10:
+    case 11: bgColor = "bg-green-500";
+             break
+    default: bgColor = "bg-white";
+             break
+  }
   return (
     <section className="ml-6 px-6 h-full grid gap-4 grid-rows-6">
       <div className="bg-[#160F29] rounded-xl row-span-2 flex justify-center items-center p-3">
@@ -123,12 +142,7 @@ const Questions = () => {
       </div>
       <div className="text-white drop-shadow-md row-span-4 px-10 py-16 relative flex flex-col items-center justify-between mb-2 bg-[url('../../public/images/whatagotchi_empty.png')] bg-cover">
         <div
-          className={`${
-            energy && energy < 5
-              ? "bg-red-500"
-              : energy && energy < 8
-              ? "bg-yellow-500"
-              : "bg-green-500"
+          className={`${bgColor
           } w-40 h-40 absolute shadow-md top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 bg-[url('../../public/images/cell_phones_hello.png')] bg-cover`}
         />
         <div className="flex justify-between w-full">
