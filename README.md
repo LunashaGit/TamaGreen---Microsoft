@@ -59,3 +59,5 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 - LinkedIn : [Matthew Hons](https://www.linkedin.com/in/matthew-hons/) | Email : matthewhons19@gmail.com
 - LinkedIn : [Nicolas Radic](https://www.linkedin.com/in/nicolas-radic-902676230/) | Email : nicolas.radic05@gmail.com
 - LinkedIn : [Stéphane Gillon](https://www.linkedin.com/in/st%C3%A9phane-gillon-593b2b120/) | Email : stephanegillon@hotmail.com
+
+We are all web dev junior from [BeCode Liège](https://becode.org/fr/a-propos-de-nous/nos-campus/liege/).
