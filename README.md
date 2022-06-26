@@ -19,7 +19,7 @@ energy to the grid.
 ---
 #### Explanation of our project:
 
-We decided to make a little daily <strong>game</strong> to raise awareness about the energy consumption during the daily life. The goal is to <strong>change the mindset</strong> of the users about the subject of <strong>ecology</strong> and to aware them when there is a peak of green energy production. This by asking questions with two possible answers which will have an effect (reduce or increase) on your four stats (well-being, ecology, health, money). Each question will cost two energy and you have max eleven of it. You will gain energy when there is a daily peak of energy. The objectif is to maintain alive your avatar (a tamagotchi like), by keeping them above 0.
+We decided to make a little daily <strong>game</strong> to raise awareness about the energy consumption during the daily life. The goal is to <strong>change the mindset</strong> of the users about the subject of <strong>ecology</strong> and to aware them when there is a peak of green energy production. This by asking questions with two possible answers which will have an effect (reduce or increase) on your four stats (well-being, ecology, health, money). Each question will cost two energy (you have max eleven of it) and some money. You will gain energy when there is a daily peak of energy. The objectif is to maintain alive your avatar (a tamagotchi like), by keeping them above 0.
 After the questions you will have a little explanation about the question and after 5 you will have a random usefull fact about something interesting.
 
 There is a ranking system, a profile page, a dashboard and achievement badges.
@@ -35,7 +35,15 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 
 ##### More features that we have thought of
 
+- The game is currently focused on energy, but it can be extended to other themes like water, gas ...
 - Possibility to scan your electricity meter
-- Connecting your electrical devices to the app
-- Possibility to buy more energy and styling for your avatar in the shop
+- Connecting your electrical devices to the app 
 - Top 3 of the ranking will receive discount voucher
+- In the shop you can : 
+    * Buy more energy.
+    * Style for your avatar.
+- More energy per hour to play with during the daily peak of green energy production.
+- Some events will occur randomly during the game, giving you bonuses or penalties.
+- Money is given each four days (one month in game).
+- Notification each day a little bit before the peak of energy.
+- The death of the avatar will result in the loss of part of the user's score.
