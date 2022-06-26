@@ -51,3 +51,11 @@ The <strong>achievement badges</strong> will be earned when you complete a chall
 - Notification each day a little bit before the peak of energy.
 - The death of the avatar will result in the loss of part of the user's score.
 - Advice given on improvements you can do daily to save energy and money, based on the data you give the app and your style of answers.
+
+#### Link for LinkedIn and email : 
+
+- LinkedIn : [Bastien Fajs](https://www.linkedin.com/in/bastien-fajs-397706230/) | Email : bastienfajs@gmail.com
+- LinkedIn : [Luna Muylkens](https://www.linkedin.com/in/luna-muylkens/) | Email : lunamuylkens@gmail.com
+- LinkedIn : [Matthew Hons](https://www.linkedin.com/in/matthew-hons/) | Email : matthewhons19@gmail.com
+- LinkedIn : [Nicolas Radic](https://www.linkedin.com/in/nicolas-radic-902676230/) | Email : nicolas.radic05@gmail.com
+- LinkedIn : [Stéphane Gillon](https://www.linkedin.com/in/st%C3%A9phane-gillon-593b2b120/) | Email : stephanegillon@hotmail.com
