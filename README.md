@@ -4,7 +4,7 @@
 
 ### Made by : [Bastien Fajs](https://github.com/SashBFa), [Luna Muylkens](https://github.com/lunashagit) , [Matthew Hons](https://github.com/MatthewHons), [Nicolas Radic](https://github.com/NicolasRadic), [Stéphane Gillon](https://github.com/rulles13).
 
-### [Link](https://tamagreen.azurewebsites.net/) to the deployed app 
+### [Link](https://tamagreen.azurewebsites.net/) to the deployed app (currently just on mobile design).
 
 #### When : During the hack in the woods Hackathon
 
