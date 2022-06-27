@@ -1,5 +1,7 @@
 # Project:  Affordable and Clean Energy - TamagreenApp
 
+## Deploy version : https://tamagreen.azurewebsites.net/
+
 ## For:  Microsoft
 
 ### Made by : [Bastien Fajs](https://github.com/SashBFa), [Luna Muylkens](https://github.com/lunashagit) , [Matthew Hons](https://github.com/MatthewHons), [Nicolas Radic](https://github.com/NicolasRadic), [Stéphane Gillon](https://github.com/rulles13).
