@@ -1,8 +1,21 @@
 # Project:  Affordable and Clean Energy - TamagreenApp
 
-## Deploy version : https://tamagreen.azurewebsites.net/
+## Mockup
+
 
 ## For:  Microsoft
+### Base app
+<img width="377" height="665" alt="image" src="https://github.com/user-attachments/assets/486d2197-8b01-440c-a605-e33790fb66f2" />
+
+### Explain Modal
+<img width="371" height="665" alt="image" src="https://github.com/user-attachments/assets/8206ee74-6a5d-4ae2-a254-c61036bc7353" />
+
+### Health Status
+<img width="236" height="290" alt="image" src="https://github.com/user-attachments/assets/864e0bf1-cc38-4418-8e7f-befa50a09617" />
+<img width="243" height="308" alt="image" src="https://github.com/user-attachments/assets/9f3b4154-7cae-494e-b79c-2dda5502b08e" />
+
+### Out of energy
+<img width="229" height="217" alt="image" src="https://github.com/user-attachments/assets/c6a6e0a1-027f-44f9-802d-f061b7932646" />
 
 ### Made by : [Bastien Fajs](https://github.com/SashBFa), [Luna Muylkens](https://github.com/lunashagit) , [Matthew Hons](https://github.com/MatthewHons), [Nicolas Radic](https://github.com/NicolasRadic), [Stéphane Gillon](https://github.com/rulles13).
 
