@@ -17,6 +17,13 @@
 ### Out of energy
 <img width="229" height="217" alt="image" src="https://github.com/user-attachments/assets/c6a6e0a1-027f-44f9-802d-f061b7932646" />
 
+### Menus
+<img width="373" height="666" alt="image" src="https://github.com/user-attachments/assets/3eb5f8be-89c4-4571-b5ff-4f10235200fb" />
+
+###Leaderboard
+<img width="367" height="658" alt="image" src="https://github.com/user-attachments/assets/3fc9a007-4e42-4e07-b38f-6ab88fe0b6f7" />
+
+
 ### Made by : [Bastien Fajs](https://github.com/SashBFa), [Luna Muylkens](https://github.com/lunashagit) , [Matthew Hons](https://github.com/MatthewHons), [Nicolas Radic](https://github.com/NicolasRadic), [Stéphane Gillon](https://github.com/rulles13).
 
 ### [Link](https://tamagreen.azurewebsites.net/) to the deployed app (currently just on mobile design).
