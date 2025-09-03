@@ -20,7 +20,7 @@
 ### Menus
 <img width="373" height="666" alt="image" src="https://github.com/user-attachments/assets/3eb5f8be-89c4-4571-b5ff-4f10235200fb" />
 
-###Leaderboard
+### Leaderboard
 <img width="367" height="658" alt="image" src="https://github.com/user-attachments/assets/3fc9a007-4e42-4e07-b38f-6ab88fe0b6f7" />
 
 
